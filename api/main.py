@@ -5,7 +5,7 @@ import json
 
 app = Flask(__name__)
 
-SECRET_KEY = "changeme"
+SECRET_KEY = "required_for_flask_session"
 SESSION_TYPE = 'filesystem'
 app.config.from_object(__name__)
 Session(app)
@@ -42,16 +42,11 @@ def check_login():
 def add_entry():
     entry_text = request.json
     values = json.loads(entry_text)
-    print(values)
-    print("Printed Values above")
     session['values'].append(values['entry-text'])
-    print("----appended values to session values----")
-    print(session['values'])
     return jsonify({'message': 'Entry added successfully'})
 
 @app.route('/check-entries', methods=['GET'])
 def check_entries():
-    # return jsonify(session['values'])
     return jsonify(session['values'])
 
 if __name__ == '__main__':
