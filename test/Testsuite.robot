@@ -37,12 +37,6 @@ Quick Login Keyword Request
     Log user out
     Check user is logged out
 
-Quick Check Entries Request
-    ${response}=    GET  ${URL}check-entries
-
-Quick Add Entries Request
-    ${response}=    POST  ${URL}check-entries
-
 Quick Logout Request
     ${response}=    POST  ${URL}logout
 
